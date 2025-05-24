@@ -38,15 +38,39 @@ export default function CleartripFlightSearch() {
     setSpecialFares(prev => ({ ...prev, [type]: !prev[type] }));
   };
 
-
   return (
     <div className="bg-[#fafbfc]">
       <Navbar />
-      <section className="pt-10 pb-5 flex gap-4">
+      <section className="pt-10 pb-5 flex gap-4"
+        style={{
+          backgroundImage: "url('/images/flight.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
         <div className="md:w-2/3 max-md:w-11/12 mx-auto max-w-5xl">
           <h1 className="text-3xl font-bold">Search Flights</h1>
-          <p>Enjoy hassle free flight ticket bookings at lowest airfare</p>
-          <div className="mx-auto bg-white rounded-lg shadow-md p-6 my-4">
+          <p className="mb-4">Enjoy hassle free flight ticket bookings at lowest airfare</p>
+
+          {/* Trip Type Selector */}
+          <div className="flex mb-4 bg-white/80 rounded-lg p-1 w-fit">
+            <button
+              onClick={() => setTripType('one-way')}
+              className={`px-4 py-2 rounded-md ${tripType === 'one-way' ? 'bg-blue-600 text-white' : 'text-gray-700'}`}
+            >
+              One Way
+            </button>
+            <button
+              onClick={() => setTripType('round-trip')}
+              className={`px-4 py-2 rounded-md ${tripType === 'round-trip' ? 'bg-blue-600 text-white' : 'text-gray-700'}`}
+            >
+              Round Trip
+            </button>
+          </div>
+
+          {/* Form with reduced opacity */}
+          <div className="mx-auto bg-gray-100/85 rounded-lg shadow-md p-6">
             {/* Route Selection */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
@@ -55,7 +79,7 @@ export default function CleartripFlightSearch() {
                   type="text"
                   placeholder="City or Airport"
                   spellCheck="false"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                 />
               </div>
               <div>
@@ -64,7 +88,7 @@ export default function CleartripFlightSearch() {
                   type="text"
                   placeholder="City or Airport"
                   spellCheck="false"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                 />
               </div>
             </div>
@@ -75,8 +99,7 @@ export default function CleartripFlightSearch() {
                 <label className="block text-gray-700 mb-2">Departure</label>
                 <input
                   type="date"
-                  spellCheck="false"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                 />
               </div>
               {tripType === 'round-trip' && (
@@ -84,8 +107,7 @@ export default function CleartripFlightSearch() {
                   <label className="block text-gray-700 mb-2">Return</label>
                   <input
                     type="date"
-                    spellCheck="false"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                   />
                 </div>
               )}
@@ -98,7 +120,7 @@ export default function CleartripFlightSearch() {
                 <label className="block text-gray-700 mb-2">Passengers</label>
                 <button
                   onClick={() => setShowPassengerDropdown(!showPassengerDropdown)}
-                  className="w-full p-3 border border-gray-300 rounded-lg text-left flex justify-between items-center"
+                  className="w-full p-3 border border-gray-300 rounded-lg text-left flex justify-between items-center bg-white"
                 >
                   <span>
                     {passengers.adults} Adult{passengers.adults !== 1 ? 's' : ''}, {passengers.children} Child{passengers.children !== 1 ? 'ren' : ''}, {passengers.infants} Infant{passengers.infants !== 1 ? 's' : ''}
@@ -187,7 +209,7 @@ export default function CleartripFlightSearch() {
                 <select
                   value={cabinClass}
                   onChange={(e) => setCabinClass(e.target.value)}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                 >
                   <option value="economy">Economy</option>
                   <option value="premium-economy">Premium Economy</option>
@@ -233,11 +255,61 @@ export default function CleartripFlightSearch() {
         </div>
       </section>
 
+      <section className="py-10 bg-gray-50">
+        <div className="md:w-2/3 max-md:w-11/12 mx-auto max-w-5xl">
+          <h2 className="text-2xl font-bold text-blue-700 mb-6">Special Offers & Deals</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Offer Cards */}
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+              <h3 className="font-bold text-lg mb-2">PINES</h3>
+              <p className="text-gray-700 mb-2">Up to 12% off at Flights and Friends Network</p>
+              <p className="text-sm text-gray-500">Credit Cards</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+              <h3 className="font-bold text-lg mb-2">PRIOR</h3>
+              <p className="text-gray-700 mb-2">Up to 12% off + additional savings on test on Plays with Anti Bank Credit Card (IN-1)</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+              <h3 className="font-bold text-lg mb-2">A new bunch</h3>
+              <p className="text-gray-700 mb-2">UP TO 12% off + 10+ CAGREDs on Plays with DPC FREE Bank Credit Card</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+              <h3 className="font-bold text-lg mb-2">BROKEN</h3>
+              <p className="text-gray-700 mb-2">Up to 12% off + 10+ CAGREDs on Plays with GIFT FREE Bank Credit Card</p>
+            </div>
+
+          
+            {/* STEPHILLS offers */}
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+              <h3 className="font-bold text-lg mb-2">STEPHILLS</h3>
+              <p className="text-gray-700 mb-2">Up to 4,00,000 off on Plays for a year</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+              <h3 className="font-bold text-lg mb-2">STEPHILLS</h3>
+              <p className="text-gray-700 mb-2">Up to 5,00,000 off on Plays for a year</p>
+            </div>
+
+            {/* New Customer Offer */}
+            <div className="bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-blue-700 col-span-1 md:col-span-2 lg:col-span-3">
+              <h3 className="font-bold text-lg mb-2 text-blue-700">NEW CUSTOMERS * USE CODE: GTNEW *</h3>
+              <ul className="list-disc list-inside space-y-2">
+                <li className="text-gray-700">Get Flat 10% off on domestic flights*</li>
+                <li className="text-gray-700">Flat 25% off on Hotels</li>
+                <li className="text-gray-700">Flat 12% off on Buses</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:w-2/3 max-md:w-11/12 mx-auto">
-
         <div className="max-w-5xl mx-auto px-4 py-10">
-
-          <h1 className="text-3xl font-bold text-blue-700 mb-4">
+          <h1 className="text-2xl font-bold text-blue-700 mb-4">
             Book Flights with Ghumtrip - Seamless, Affordable & Hassle-Free
           </h1>
           <p className="mb-4">Planning your next trip? Whether it's a domestic journey within India or an international adventure, Ghumtrip makes it simple to book cheap flights without any hassle.</p>
@@ -318,7 +390,6 @@ export default function CleartripFlightSearch() {
             <li>Ghumtrip is a travel aggregator and does not operate its own flights.</li>
             <li>Discounts and offers are subject to the terms and conditions specified on the website.</li>
           </ul>
-
         </div>
       </section>
     </div>

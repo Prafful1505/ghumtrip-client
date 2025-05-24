@@ -1,8 +1,7 @@
 'use client';
 import Navbar from "@/components/Navbar";
 import React, { useState } from 'react';
-import { FaUser, FaChild, FaBabyCarriage, FaChevronDown, FaChevronUp, FaUserGraduate, FaUserShield } from 'react-icons/fa';
-import { FaUserTie } from 'react-icons/fa';
+import { FaBabyCarriage, FaChevronDown, FaChevronUp, FaChild, FaUser, FaUserGraduate, FaUserShield, FaUserTie } from 'react-icons/fa';
 
 type PassengerType = 'adults' | 'children' | 'infants';
 type SpecialFareType = 'seniorCitizen' | 'student' | 'armedForces';
@@ -43,201 +42,198 @@ export default function CleartripFlightSearch() {
   return (
     <div className="bg-[#fafbfc]">
       <Navbar />
-      <section className="py-5 flex gap-4">
-        <div className="w-2/3 px-4 ps-20">
-        <h1 className="text-3xl font-bold">Search Flights</h1>
-        <p>Enjoy hassle free flight ticket bookings at lowest airfare</p>
-        <div className="mx-auto bg-white rounded-lg shadow-md p-6 my-4">
-          {/* Route Selection */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div>
-              <label className="block text-gray-700 mb-2">From</label>
-              <input
-                type="text"
-                placeholder="City or Airport"
-                spellCheck="false"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 mb-2">To</label>
-              <input
-                type="text"
-                placeholder="City or Airport"
-                spellCheck="false"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-          </div>
-
-          {/* Date Selection */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div>
-              <label className="block text-gray-700 mb-2">Departure</label>
-              <input
-                type="date"
-                spellCheck="false"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            {tripType === 'round-trip' && (
+      <section className="pt-10 pb-5 flex gap-4">
+        <div className="md:w-2/3 max-md:w-11/12 mx-auto max-w-5xl">
+          <h1 className="text-3xl font-bold">Search Flights</h1>
+          <p>Enjoy hassle free flight ticket bookings at lowest airfare</p>
+          <div className="mx-auto bg-white rounded-lg shadow-md p-6 my-4">
+            {/* Route Selection */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
               <div>
-                <label className="block text-gray-700 mb-2">Return</label>
+                <label className="block text-gray-700 mb-2">From</label>
+                <input
+                  type="text"
+                  placeholder="City or Airport"
+                  spellCheck="false"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 mb-2">To</label>
+                <input
+                  type="text"
+                  placeholder="City or Airport"
+                  spellCheck="false"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+
+            {/* Date Selection */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <label className="block text-gray-700 mb-2">Departure</label>
                 <input
                   type="date"
                   spellCheck="false"
                   className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-            )}
-          </div>
-
-          {/* Passenger and Class Selection */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            {/* Passenger Dropdown */}
-            <div className="relative">
-              <label className="block text-gray-700 mb-2">Passengers</label>
-              <button
-                onClick={() => setShowPassengerDropdown(!showPassengerDropdown)}
-                className="w-full p-3 border border-gray-300 rounded-lg text-left flex justify-between items-center"
-              >
-                <span>
-                  {passengers.adults} Adult{passengers.adults !== 1 ? 's' : ''}, {passengers.children} Child{passengers.children !== 1 ? 'ren' : ''}, {passengers.infants} Infant{passengers.infants !== 1 ? 's' : ''}
-                </span>
-                {showPassengerDropdown ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
-
-              {showPassengerDropdown && (
-                <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-4">
-                  <div className="flex justify-between items-center mb-3">
-                    <div className="flex items-center">
-                      <FaUser className="mr-2 text-gray-600" />
-                      <span>Adults (12+)</span>
-                    </div>
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => handlePassengerChange('adults', 'decrease')}
-                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
-                        disabled={passengers.adults <= 1}
-                      >
-                        -
-                      </button>
-                      <span className="mx-3">{passengers.adults}</span>
-                      <button
-                        onClick={() => handlePassengerChange('adults', 'increase')}
-                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center mb-3">
-                    <div className="flex items-center">
-                      <FaChild className="mr-2 text-gray-600" />
-                      <span>Children (2-12)</span>
-                    </div>
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => handlePassengerChange('children', 'decrease')}
-                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
-                        disabled={passengers.children <= 0}
-                      >
-                        -
-                      </button>
-                      <span className="mx-3">{passengers.children}</span>
-                      <button
-                        onClick={() => handlePassengerChange('children', 'increase')}
-                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                      <FaBabyCarriage className="mr-2 text-gray-600" />
-                      <span>Infants (0-2)</span>
-                    </div>
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => handlePassengerChange('infants', 'decrease')}
-                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
-                        disabled={passengers.infants <= 0}
-                      >
-                        -
-                      </button>
-                      <span className="mx-3">{passengers.infants}</span>
-                      <button
-                        onClick={() => handlePassengerChange('infants', 'increase')}
-                        className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
-                        disabled={passengers.infants >= passengers.adults}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+              {tripType === 'round-trip' && (
+                <div>
+                  <label className="block text-gray-700 mb-2">Return</label>
+                  <input
+                    type="date"
+                    spellCheck="false"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
                 </div>
               )}
             </div>
 
-            {/* Cabin Class Dropdown */}
-            <div>
-              <label className="block text-gray-700 mb-2">Cabin Class</label>
-              <select
-                value={cabinClass}
-                onChange={(e) => setCabinClass(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="economy">Economy</option>
-                <option value="premium-economy">Premium Economy</option>
-                <option value="business">Business</option>
-                <option value="first">First Class</option>
-              </select>
-            </div>
-          </div>
+            {/* Passenger and Class Selection */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              {/* Passenger Dropdown */}
+              <div className="relative">
+                <label className="block text-gray-700 mb-2">Passengers</label>
+                <button
+                  onClick={() => setShowPassengerDropdown(!showPassengerDropdown)}
+                  className="w-full p-3 border border-gray-300 rounded-lg text-left flex justify-between items-center"
+                >
+                  <span>
+                    {passengers.adults} Adult{passengers.adults !== 1 ? 's' : ''}, {passengers.children} Child{passengers.children !== 1 ? 'ren' : ''}, {passengers.infants} Infant{passengers.infants !== 1 ? 's' : ''}
+                  </span>
+                  {showPassengerDropdown ? <FaChevronUp /> : <FaChevronDown />}
+                </button>
 
-          {/* Special Fares */}
-          <div className="mb-6">
-            <h3 className="text-gray-700 mb-3">Special Fares (Select if applicable)</h3>
-            <div className="flex flex-wrap gap-3">
-              <button
-                onClick={() => toggleSpecialFare('seniorCitizen')}
-                className={`flex items-center px-4 py-2 rounded-full border ${specialFares.seniorCitizen ? 'bg-blue-100 border-blue-500 text-blue-700' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
-              >
-                <FaUserTie className="mr-2" />
-                Senior Citizen
-              </button>
-              <button
-                onClick={() => toggleSpecialFare('student')}
-                className={`flex items-center px-4 py-2 rounded-full border ${specialFares.student ? 'bg-blue-100 border-blue-500 text-blue-700' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
-              >
-                <FaUserGraduate className="mr-2" />
-                Student
-              </button>
-              <button
-                onClick={() => toggleSpecialFare('armedForces')}
-                className={`flex items-center px-4 py-2 rounded-full border ${specialFares.armedForces ? 'bg-blue-100 border-blue-500 text-blue-700' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
-              >
-                <FaUserShield className="mr-2" />
-                Armed Forces
-              </button>
-            </div>
-          </div>
+                {showPassengerDropdown && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-4">
+                    <div className="flex justify-between items-center mb-3">
+                      <div className="flex items-center">
+                        <FaUser className="mr-2 text-gray-600" />
+                        <span>Adults (12+)</span>
+                      </div>
+                      <div className="flex items-center">
+                        <button
+                          onClick={() => handlePassengerChange('adults', 'decrease')}
+                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
+                          disabled={passengers.adults <= 1}
+                        >
+                          -
+                        </button>
+                        <span className="mx-3">{passengers.adults}</span>
+                        <button
+                          onClick={() => handlePassengerChange('adults', 'increase')}
+                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
 
-          {/* Search Button */}
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 cursor-pointer">
-            Search Flights
-          </button>
-        </div>
-        </div>
-        <div>
-          adsads
+                    <div className="flex justify-between items-center mb-3">
+                      <div className="flex items-center">
+                        <FaChild className="mr-2 text-gray-600" />
+                        <span>Children (2-12)</span>
+                      </div>
+                      <div className="flex items-center">
+                        <button
+                          onClick={() => handlePassengerChange('children', 'decrease')}
+                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
+                          disabled={passengers.children <= 0}
+                        >
+                          -
+                        </button>
+                        <span className="mx-3">{passengers.children}</span>
+                        <button
+                          onClick={() => handlePassengerChange('children', 'increase')}
+                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center">
+                        <FaBabyCarriage className="mr-2 text-gray-600" />
+                        <span>Infants (0-2)</span>
+                      </div>
+                      <div className="flex items-center">
+                        <button
+                          onClick={() => handlePassengerChange('infants', 'decrease')}
+                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
+                          disabled={passengers.infants <= 0}
+                        >
+                          -
+                        </button>
+                        <span className="mx-3">{passengers.infants}</span>
+                        <button
+                          onClick={() => handlePassengerChange('infants', 'increase')}
+                          className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center"
+                          disabled={passengers.infants >= passengers.adults}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Cabin Class Dropdown */}
+              <div>
+                <label className="block text-gray-700 mb-2">Cabin Class</label>
+                <select
+                  value={cabinClass}
+                  onChange={(e) => setCabinClass(e.target.value)}
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="economy">Economy</option>
+                  <option value="premium-economy">Premium Economy</option>
+                  <option value="business">Business</option>
+                  <option value="first">First Class</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Special Fares */}
+            <div className="mb-6">
+              <h3 className="text-gray-700 mb-3">Special Fares (Select if applicable)</h3>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={() => toggleSpecialFare('seniorCitizen')}
+                  className={`flex items-center px-4 py-2 rounded-full border ${specialFares.seniorCitizen ? 'bg-blue-100 border-blue-500 text-blue-700' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
+                >
+                  <FaUserTie className="mr-2" />
+                  Senior Citizen
+                </button>
+                <button
+                  onClick={() => toggleSpecialFare('student')}
+                  className={`flex items-center px-4 py-2 rounded-full border ${specialFares.student ? 'bg-blue-100 border-blue-500 text-blue-700' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
+                >
+                  <FaUserGraduate className="mr-2" />
+                  Student
+                </button>
+                <button
+                  onClick={() => toggleSpecialFare('armedForces')}
+                  className={`flex items-center px-4 py-2 rounded-full border ${specialFares.armedForces ? 'bg-blue-100 border-blue-500 text-blue-700' : 'bg-gray-100 border-gray-300 text-gray-700'}`}
+                >
+                  <FaUserShield className="mr-2" />
+                  Armed Forces
+                </button>
+              </div>
+            </div>
+
+            {/* Search Button */}
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 cursor-pointer">
+              Search Flights
+            </button>
+          </div>
         </div>
       </section>
 
-      <section className="p-20">
+      <section className="py-20 md:w-2/3 max-md:w-11/12 mx-auto">
 
         <div className="max-w-5xl mx-auto px-4 py-10">
 

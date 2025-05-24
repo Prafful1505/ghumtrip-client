@@ -8,8 +8,8 @@ export default function Trains() {
   return (
     <div className="bg-[#fafbfc]">
       <Navbar />
-      <section className="py-5 flex gap-4">
-        <div className="w-2/3 px-4 ps-20">
+      <section className="pt-10 pb-5 flex gap-4">
+        <div className="md:w-2/3 max-md:w-11/12 mx-auto  max-w-5xl">
           <h1 className="text-3xl font-bold">Search Trains</h1>
           <p>Enjoy hassle free train ticket bookings</p>
           <div className="mx-auto bg-white rounded-lg shadow-md p-6 my-4">
@@ -79,7 +79,7 @@ export default function Trains() {
       </section>
 
       {/* Train Booking Info Section */}
-      <section className="p-20">
+      <section className="py-20 md:w-2/3 max-md:w-11/12 mx-auto">
         <div className="max-w-5xl mx-auto px-4 py-10">
           <h1 className="text-3xl font-bold text-blue-700 mb-4">
             Book Train Tickets with Ghumtrip - Reliable, Convenient & Affordable

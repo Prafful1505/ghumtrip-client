@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import { FaSuitcase, FaHeadset, FaUser, FaBars, FaTimes } from "react-icons/fa";
+import { FaSuitcase, FaHeadset, FaBars, FaTimes } from "react-icons/fa";
 import { RiCoupon2Line } from "react-icons/ri";
 import { useState, useEffect } from "react";
 

@@ -227,7 +227,7 @@ export default function CleartripFlightSearch() {
           </div>
 
           {/* Search Button */}
-          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200">
+          <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 cursor-pointer">
             Search Flights
           </button>
         </div>

@@ -312,11 +312,11 @@ export default function CleartripFlightSearch() {
           <h1 className="text-2xl font-bold text-blue-700 mb-4">
             Book Flights with Ghumtrip - Seamless, Affordable & Hassle-Free
           </h1>
-          <p className="mb-4">Planning your next trip? Whether it's a domestic journey within India or an international adventure, Ghumtrip makes it simple to book cheap flights without any hassle.</p>
+          <p className="mb-4">Planning your next trip? Whether it&apos;s a domestic journey within India or an international adventure, Ghumtrip makes it simple to book cheap flights without any hassle.</p>
 
           <p className="mb-4">Our platform has an easy-to-use interface. It offers many airlines and affordable fares, helping you find the best travel deals.</p>
 
-          <p className="mb-6">Ghumtrip helps you compare prices for last-minute trips and planned vacations. You can choose the best options and book quickly and safely. Whether you're flying for business or leisure, our efficient search engine and user-friendly experience make booking flights effortless.</p>
+          <p className="mb-6">Ghumtrip helps you compare prices for last-minute trips and planned vacations. You can choose the best options and book quickly and safely. Whether you&apos;re flying for business or leisure, our efficient search engine and user-friendly experience make booking flights effortless.</p>
 
           <h2 className="text-2xl font-semibold text-blue-600 mb-2">Why Choose Ghumtrip for Flight Booking?</h2>
           <ul className="list-disc list-inside mb-6 space-y-1">
@@ -351,10 +351,10 @@ export default function CleartripFlightSearch() {
           <h2 className="text-2xl font-semibold text-blue-600 mb-2">FAQs: Book Flights with Ghumtrip</h2>
           <ul className="space-y-4 mb-8">
             <li><strong>How can I check my flight status on Ghumtrip?</strong><br />
-              You can check your flight status by entering your booking details on the 'Manage Booking' section of the Ghumtrip website or app.
+              You can check your flight status by entering your booking details on the &apos;Manage Booking&apos; section of the Ghumtrip website or app.
             </li>
             <li><strong>Does Ghumtrip offer refunds on cancelled tickets?</strong><br />
-              Yes, refunds are processed based on the airline's cancellation policy. Any applicable charges will be deducted.
+              Yes, refunds are processed based on the airline&apos;s cancellation policy. Any applicable charges will be deducted.
             </li>
             <li><strong>Can I book one-way and round-trip flights on Ghumtrip?</strong><br />
               Yes, Ghumtrip allows you to book both one-way and round-trip flights as per your travel needs.
@@ -385,7 +385,7 @@ export default function CleartripFlightSearch() {
           <h3 className="text-xl font-semibold text-red-600 mb-2">Disclaimer</h3>
           <ul className="list-disc list-inside text-sm space-y-1">
             <li>Flight fares are dynamic and subject to availability at the time of booking.</li>
-            <li>Refunds, cancellations, and modifications are as per the airlines' policies.</li>
+            <li>Refunds, cancellations, and modifications are as per the airlines&apos; policies.</li>
             <li>Before the final payment, we will display any additional charges, taxes, or surcharges.</li>
             <li>Ghumtrip is a travel aggregator and does not operate its own flights.</li>
             <li>Discounts and offers are subject to the terms and conditions specified on the website.</li>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaPlane, FaHotel, FaBus, FaTrain, FaGift } from 'react-icons/fa';
-import { RiCoupon2Fill } from 'react-icons/ri';
 import Image from 'next/image';
 import Link from 'next/link';
 

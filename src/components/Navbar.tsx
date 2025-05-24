@@ -16,7 +16,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="p-4 flex items-center justify-center gap-4 bg-[#f5f7fb]">
+    <nav className="p-4 flex items-center justify-center gap-4 bg-[#f5f7fb] hidden md:flex">
       {navItems.map((item) => (
         <Link
           key={item.name}

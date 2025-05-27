@@ -35,7 +35,11 @@ export default function GhumTripBusSearch() {
       <section
         className="pt-12 pb-8 flex gap-4"
         style={{
+<<<<<<< HEAD
           backgroundImage: "url('/images/bus.jpeg')",
+=======
+          backgroundImage: "url('/Images/bus.jpeg')",
+>>>>>>> 57e3eae (Update packages page, homepage, and add new images/icons)
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -356,4 +360,8 @@ export default function GhumTripBusSearch() {
       </section>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 57e3eae (Update packages page, homepage, and add new images/icons)

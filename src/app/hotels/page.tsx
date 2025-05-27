@@ -52,7 +52,11 @@ export default function GhumtripHotelSearch() {
       <section
         className="pt-12 pb-8 flex gap-4"
         style={{
+<<<<<<< HEAD
           backgroundImage: "url('/images/hotel.jpg')",
+=======
+          backgroundImage: "url('/Images/hotel.jpg')",
+>>>>>>> 57e3eae (Update packages page, homepage, and add new images/icons)
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -404,4 +408,8 @@ export default function GhumtripHotelSearch() {
       </section>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 57e3eae (Update packages page, homepage, and add new images/icons)

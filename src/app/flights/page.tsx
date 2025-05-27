@@ -43,7 +43,7 @@ export default function CleartripFlightSearch() {
       <Navbar />
       <section className="pt-10 pb-5 flex gap-4"
         style={{
-          backgroundImage: "url('/images/flight.jpg')",
+          backgroundImage: "url('/Images/flight.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
